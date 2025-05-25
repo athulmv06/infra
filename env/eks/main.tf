@@ -31,6 +31,18 @@ data "terraform_remote_state" "vpc" {
 }
 
 
+data "terraform_remote_state" "ec2_instance" {
+  backend = "s3"
+  config = {
+    bucket = "terraform-states-infra-1"
+    key    = "bastion-state/bastion-terraform.tfstate"
+
+    region = "us-east-1"
+  }
+}
+
+
+
 module "eks" {
   source = "../../modules/eks"
 
@@ -48,8 +60,8 @@ module "eks" {
   vpc_id          = data.terraform_remote_state.vpc.outputs.vpc_id
   private_subnets = data.terraform_remote_state.vpc.outputs.private_subnets
   public_subnets  = data.terraform_remote_state.vpc.outputs.public_subnets
-  source_security_group_id = var.ec2_instance_sg_id
-  bastion_sg_id            = var.ec2_instance_sg_id
+  source_security_group_id = data.terraform_remote_state.ec2_instance.outputs.bastion_sg_id
+  bastion_sg_id            = data.terraform_remote_state.ec2_instance.outputs.bastion_sg_id
 
   node_groups_key_name     = var.node_groups_key_name
   public_key               = var.node_groups_key

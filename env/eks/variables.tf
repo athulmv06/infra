@@ -123,11 +123,6 @@ variable "node_groups_key" {
 variable "principal_arn" {
   description = "The ARN of the IAM role for the admin user"
   type        = string
-  default     = "arn:aws:iam::976193254957:user/Athul"
+  default     = "arn:aws:iam::867852670857:user/athulmv"
 }
 
-variable "ec2_instance_sg_id" {
-  description = ""
-  type        = string
-  default     = "sg-0396a9606b52eec99"
-}
