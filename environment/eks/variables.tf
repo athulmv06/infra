@@ -69,19 +69,19 @@ variable "node_groups_name" {
 variable "min_size" {
   description = "minimum number of basenodes"
   type        = string
-  default     = "1"
+  default     = "2"
 }
 
 variable "max_size" {
   description = "maximum number of basenodes"
   type        = string
-  default     = "1"
+  default     = "2"
 }
 
 variable "desired_size" {
   description = "desired size"
   type        = string
-  default     = "1"
+  default     = "2"
 }
 
 variable "disk_size" {

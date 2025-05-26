@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: awscli
+  labels:
+    app: awscli
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: awscli
+  template:
+    metadata:
+      labels:
+        app: awscli
+    spec:
+      containers:
+      - name: awscli
+        image: amazon/aws-cli:2.15.15  # Use latest stable version
+        command: ["sh", "-c", "sleep 3600"]
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "200m"
+            memory: "256Mi"
+      restartPolicy: Always

@@ -1,0 +1,22 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: argocd-server-np
+  namespace: argocd
+  labels:
+    app.kubernetes.io/component: server
+    app.kubernetes.io/name: argocd-server
+    app.kubernetes.io/part-of: argocd
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 8080
+  selector:
+    app.kubernetes.io/name: argocd-server
+  type: NodePort

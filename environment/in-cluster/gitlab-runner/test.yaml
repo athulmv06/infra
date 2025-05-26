@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: busybox-debug
+  labels:
+    app: busybox-debug
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: busybox-debug
+  template:
+    metadata:
+      labels:
+        app: busybox-debug
+    spec:
+      containers:
+      - name: busybox
+        image: busybox:latest
+        command: ["sh", "-c", "sleep 3600"]
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "64Mi"
+          limits:
+            cpu: "100m"
+            memory: "128Mi"
+      restartPolicy: Always
