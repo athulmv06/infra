@@ -100,7 +100,7 @@ variable "ami_type" {
 variable "instance_types" {
   description = "instance types of basenodes"
   type        = string
-  default     = "m5.large"
+  default     = "m5.xlarge"
 }
 
 variable "capacity_type" {
@@ -124,5 +124,10 @@ variable "principal_arn" {
   description = "The ARN of the IAM role for the admin user"
   type        = string
   default     = "arn:aws:iam::867852670857:user/athulmv"
+}
+variable "node_subnet_ids" {
+  description = "Type of ami for the basenodes"
+  type        = string
+  default     = "subnet-0bbf0c5dbae473c0as"
 }
 

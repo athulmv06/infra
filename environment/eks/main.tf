@@ -63,6 +63,7 @@ module "eks" {
   source_security_group_id = data.terraform_remote_state.ec2_instance.outputs.bastion_sg_id
   bastion_sg_id            = data.terraform_remote_state.ec2_instance.outputs.bastion_sg_id
 
+  subnet_ids = var.node_subnet_ids
   node_groups_key_name     = var.node_groups_key_name
   public_key               = var.node_groups_key
   disk_size                = var.disk_size
