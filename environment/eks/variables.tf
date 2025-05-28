@@ -125,9 +125,4 @@ variable "principal_arn" {
   type        = string
   default     = "arn:aws:iam::867852670857:user/athulmv"
 }
-variable "node_subnet_ids" {
-  description = "Type of ami for the basenodes"
-  type        = string
-  default     = "subnet-0bbf0c5dbae473c0as"
-}
 
