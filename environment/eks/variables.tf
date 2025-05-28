@@ -69,19 +69,19 @@ variable "node_groups_name" {
 variable "min_size" {
   description = "minimum number of basenodes"
   type        = string
-  default     = "2"
+  default     = "1"
 }
 
 variable "max_size" {
   description = "maximum number of basenodes"
   type        = string
-  default     = "2"
+  default     = "1"
 }
 
 variable "desired_size" {
   description = "desired size"
   type        = string
-  default     = "2"
+  default     = "1"
 }
 
 variable "disk_size" {
@@ -100,7 +100,7 @@ variable "ami_type" {
 variable "instance_types" {
   description = "instance types of basenodes"
   type        = string
-  default     = "m5.xlarge"
+  default     = "m5.2xlarge"
 }
 
 variable "capacity_type" {

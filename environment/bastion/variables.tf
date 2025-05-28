@@ -1,13 +1,13 @@
 variable "key_name" {
   description = "Name of the EC2 key pair to be used for the Bastion host."
   type        = string
-  default     = "infra-bastion-key"
+  default     = "infra-bastion-key-1"
 }
 
 variable "bastion_sg_name" {
   description = "Name of the Security Group to be created or used for the Bastion host."
   type        = string
-  default     = "bastion"
+  default     = "bastion-1"
 }
 
 variable "user_data" {
@@ -76,7 +76,7 @@ variable "root_block_device" {
       encrypted   = true
       volume_type = "gp3"
       throughput  = 200
-      volume_size = 8
+      volume_size = 30
       tags = {
         Name = "bastion"
       }
